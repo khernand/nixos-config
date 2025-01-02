@@ -23,6 +23,7 @@
   # Enable programs
   _1password.enable = true;
   steam.enable = true;
+  firefox.enable = true;
 
   # Define hostname
   networking.hostName = "nixos";
@@ -43,9 +44,6 @@
       kdePackages.kate
     ];
   };
-
-  # Install firefox.
-  programs.firefox.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
