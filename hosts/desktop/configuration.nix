@@ -20,6 +20,7 @@
   printing.enable = true;
   x11.enable = true;
   networking.enable = true;
+  plasma.enable = true;
 
   # Enable programs
   _1password.enable = true;
@@ -30,10 +31,6 @@
 
   # Define hostname
   networking.hostName = "nixos";
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.khernand = {
