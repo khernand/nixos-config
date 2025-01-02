@@ -17,6 +17,7 @@
   nvidia.enable = true;
   bluetooth.enable = true;
   audio.enable = true;
+  printing.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -59,12 +60,6 @@
     layout = "us";
     variant = "";
   };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.khernand = {
