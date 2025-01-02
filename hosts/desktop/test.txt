@@ -1,1 +1,0 @@
-nix log /nix/store/rbzfbbi4wlk7vhkxyjfl0wwfyfidbn6k-kinfocenter-6.2.5.drv
