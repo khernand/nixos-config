@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
-
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: 
 {
   options = {
     profiles.khernand.enable = lib.mkOption {
@@ -15,7 +19,7 @@
       description = "kevin hernandez";
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [
-        pkgs.kdeApplications.kate
+        pkgs.kate
       ];
     };
   };
