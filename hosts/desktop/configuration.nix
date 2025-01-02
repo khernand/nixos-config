@@ -19,6 +19,10 @@
   audio.enable = true;
   printing.enable = true;
 
+  # Enable programs
+  _1password.enable = true;
+  steam.enable = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -84,26 +88,10 @@
     wget
     cudatoolkit
     discord
-    _1password-gui
-    _1password-cli
-    steam
     vscode
     git
     # nvidia-x11
   ];
-
-  # 1Password
-  programs._1password.enable = true;
-  programs._1password-gui = {
-    enable = true;
-    polkitPolicyOwners = [ "khernand" ];
-  };
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
