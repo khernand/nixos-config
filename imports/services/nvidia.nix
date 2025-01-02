@@ -26,5 +26,9 @@
     hardware.graphics.enable32Bit = true;
     environment.variables.VULKAN_ICD_PATH = "/etc/vulkan/icd.d";
     environment.variables.LAYER_PATH = "/etc/vulkan/implicit_layer.d";
+
+    environment.systemPackages = with pkgs; [
+      cudatoolkit
+    ];
   };
 }
