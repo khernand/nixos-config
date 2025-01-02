@@ -2,7 +2,7 @@
 
 {
   options = {
-    steam.enable = lib.mkOption {
+    firefox.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable Firefox";
