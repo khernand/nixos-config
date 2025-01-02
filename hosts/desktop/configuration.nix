@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
     ];
 
-  # Limit build resources since it was leading to 100% CPU usage
+  # Limit build resources since it was leading to 100% CPU usage on my machine
   nix.settings.max-jobs = 10;
 
   # Enable services
@@ -24,8 +24,8 @@
   _1password.enable = true;
   steam.enable = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Define hostname
+  networking.hostName = "nixos";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -46,9 +46,6 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
