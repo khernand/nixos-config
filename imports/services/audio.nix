@@ -10,15 +10,14 @@
   };
 
   config = lib.mkIf config.audio.enable {
-    # Enable sound with pipewire.
-    services.pulseaudio.enable = false;
-
+    # Enable sound with PipeWire.
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
-      pulse.enable = true;
+      pulse.enable = true; # This replaces the old `services.pulseaudio.enable`
+      jack.enable = true;  # Optional, if you want JACK support
     };
   };
 }

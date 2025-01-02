@@ -13,18 +13,20 @@
     # NVIDIA GPU settings
     services.xserver.videoDrivers = [ "nvidia" ];
     hardware.graphics.enable = true;
+    hardware.graphics.enable32Bit = true;
 
     hardware.nvidia = {
-      open = true;
+      open = false;
+      powerManagement.enable = true;
       modesetting.enable = true;
-      # Uncomment the following for PRIME offloading support
-      #prime = {
-      #   offload.enable = true;
-      #};
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
 
-    hardware.graphics.enable32Bit = true;
     environment.variables.VULKAN_ICD_PATH = "/etc/vulkan/icd.d";
     environment.variables.LAYER_PATH = "/etc/vulkan/implicit_layer.d";
+
+    environment.systemPackages = with pkgs; [
+      cudatoolkit
+    ];
   };
 }

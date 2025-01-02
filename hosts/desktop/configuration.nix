@@ -10,105 +10,30 @@
       ./hardware-configuration.nix
     ];
 
-  # Limit build resources since it was leading to 100% CPU usage
-  nix.settings.max-jobs = 10;
+  # Limit build resources since it was leading to 100% CPU usage on my machine
+  nix.settings.max-jobs = 15;
 
   # Enable services
   nvidia.enable = true;
   bluetooth.enable = true;
   audio.enable = true;
+  printing.enable = true;
+  x11.enable = true;
+  networking.enable = true;
+  plasma.enable = true;
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # Enable system programs
+  _1password.enable = true;
+  steam.enable = true;
+  firefox.enable = true;
+  zsh.enable = true;
+  docker.enable = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Define hostname
+  networking.hostName = "nixos";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "America/New_York";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.khernand = {
-    isNormalUser = true;
-    description = "kevin hernandez";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    ];
-  };
-
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    cudatoolkit
-    discord
-    _1password-gui
-    _1password-cli
-    steam
-    vscode
-    git
-    # nvidia-x11
-  ];
-
-  # 1Password
-  programs._1password.enable = true;
-  programs._1password-gui = {
-    enable = true;
-    polkitPolicyOwners = [ "khernand" ];
-  };
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
+  # Enable user profiles.
+  profiles.khernand.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
