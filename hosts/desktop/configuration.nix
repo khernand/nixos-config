@@ -24,6 +24,7 @@
   _1password.enable = true;
   steam.enable = true;
   firefox.enable = true;
+  discord.enable = true;
 
   # Define hostname
   networking.hostName = "nixos";
@@ -51,7 +52,6 @@
     vim
     wget
     cudatoolkit
-    discord
     vscode
     git
   ];
