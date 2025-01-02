@@ -32,15 +32,8 @@
   # Define hostname
   networking.hostName = "nixos";
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.khernand = {
-    isNormalUser = true;
-    description = "kevin hernandez";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    ];
-  };
+  # Enable user profiles.
+  profiles.khernand.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

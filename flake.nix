@@ -28,6 +28,7 @@
           ./imports/core 
           ./imports/services
           ./imports/programs
+          ./imports/profiles
         ];
       };
     in
