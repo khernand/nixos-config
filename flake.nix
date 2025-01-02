@@ -24,9 +24,10 @@
         modules = [
           ./hosts/${hostName}/hardware-configuration.nix
           ./hosts/${hostName}/configuration.nix
-        ] ++ importNixFiles [ 
-          ./services
-          ./programs
+        ] ++ importNixFiles [
+          ./imports/core 
+          ./imports/services
+          ./imports/programs
         ];
       };
     in
