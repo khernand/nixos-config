@@ -23,10 +23,6 @@
   _1password.enable = true;
   steam.enable = true;
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   networking.hostName = "nixos"; # Define your hostname.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
