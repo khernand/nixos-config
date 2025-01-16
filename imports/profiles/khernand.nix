@@ -27,7 +27,7 @@
         git
         vscode
         discord
-        nodejs # Required for Pure prompt
+        nodejs
         obsidian
       ];
 
@@ -45,6 +45,8 @@
       home.sessionVariables = {
         EDITOR = "vim";
       };
+
+      home.file."zshrc".source = ../../../../dotfiles/.zshrc;
 
       programs.neovim.enable = true;
     };
