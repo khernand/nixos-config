@@ -22,6 +22,12 @@
       importNixFiles = dirs:
         lib.flatten (lib.map (dir: importNixFilesFromDir dir) dirs);
 
+      # Import dotfiles
+      dotfiles = builtins.fetchGit {
+        url = "git@github.com:khernand/nixos-config.git";
+        rev = "main";
+      }; 
+
       loadHost = hostName: {
         system = "x86_64-linux"; # Replace with your architecture if necessary
         modules = [
@@ -35,7 +41,7 @@
           ./imports/profiles
         ];
         specialArgs = {
-          inherit nixpkgs home-manager; # Pass nixpkgs and home-manager to configurations
+          inherit nixpkgs home-manager dotfiles; # Pass nixpkgs and home-manager to configurations
         };
       };
     in
@@ -43,5 +49,7 @@
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem (loadHost "desktop");
       };
+
+      dotfiles = dotfiles;
     };
 }

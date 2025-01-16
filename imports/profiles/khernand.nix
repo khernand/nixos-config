@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  dotfiles,
   ...
 }: 
 {
@@ -46,7 +47,10 @@
         EDITOR = "vim";
       };
 
-      home.file."zshrc".source = "${builtins.path { path = ../../dotfiles; }}/.zshrc";
+
+      # Add dotfiles
+      home.file."zshrc".source = "${dotfiles}/.zshrc";
+
 
       programs.neovim.enable = true;
     };
