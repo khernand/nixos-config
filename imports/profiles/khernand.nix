@@ -46,7 +46,7 @@
         EDITOR = "vim";
       };
 
-      home.file."zshrc".source = ../../../../dotfiles/.zshrc;
+      home.file."zshrc".source = "${builtins.path { path = ../../dotfiles; }}/.zshrc";
 
       programs.neovim.enable = true;
     };
