@@ -49,7 +49,7 @@
 
 
       # Add dotfiles
-      home.file."zshrc".source = "${dotfiles}/.zshrc";
+      # home.file."zshrc".source = "${dotfiles}/.zshrc";
 
 
       programs.neovim.enable = true;

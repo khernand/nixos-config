@@ -21,6 +21,7 @@
   x11.enable = true;
   networking.enable = true;
   plasma.enable = true;
+  thunderbolt.enable = true;
 
   # Enable system programs
   _1password.enable = true;
