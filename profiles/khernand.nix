@@ -15,6 +15,7 @@
     kitty
     zsh-powerlevel10k
     fira-code
+    fastfetch
   ];
 
   ## System configuration
@@ -78,15 +79,15 @@
 
     initExtra = ''
       [[ -f "$HOME/.local/share/autojump.sh" ]] && source "$HOME/.local/share/autojump.sh"
-      [[ -f "$HOME/.bash_aliases" ]]    && source "$HOME/.bash_aliases"
-      [[ -f "$HOME/.private_aliases" ]] && source "$HOME/.private_aliases"
+      [[ -f "$HOME/.common-aliases" ]]    && source "$HOME/.common-aliases"
+      [[ -f "$HOME/.nix-aliases" ]] && source "$HOME/.nix-aliases"
     '';
   };
 
 
   # Symlink dot files from the dotfile repo
-  # home.file.".zshrc".source = "${dotfiles}/.desktop-zshrc";
-  # home.file.".zshenv".enable = false;
+  home.file.".common-aliases".source = "${dotfiles}/.common-aliases";
+  home.file.".nix-aliases".source = "${dotfiles}/.nix-aliases";
 
   home.file.".local/share/autojump.sh".source = "${pkgs.autojump}/etc/profile.d/autojump.sh";
 
