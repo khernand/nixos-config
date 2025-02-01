@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, dotfiles, ... }:
+{ config, pkgs, home-manager, dotfiles, userName, userDescription, networkingHostName, ... }:
 
 {
   imports = [
@@ -27,27 +27,27 @@
   docker.enable = true;
 
   # Define hostname
-  networking.hostName = "nixos";
+  networking.hostName = networkingHostName;
 
   # Enable Zsh and define system-level user
   programs.zsh.enable = true;
   
-  users.users.khernand = {
+  users.users.${userName} = {
     isNormalUser = true;
-    description = "Kevin Hernandez";
-    group = "khernand";
+    description = userDescription;
+    group = userName;
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [ kate ];
     shell = pkgs.zsh;
   };
 
-  # Create the system level khernand group
-  users.groups.khernand = {};
+  # Create the system level user group
+  users.groups.${userName} = {};
 
   # ===========================
   # Home Manager configuration
   # ===========================
-  home-manager.users.khernand = import ../../profiles/khernand.nix {
+  home-manager.users.${userName} = import ../../profiles/${userName}.nix {
     inherit pkgs dotfiles;
   };
 

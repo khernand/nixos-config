@@ -38,7 +38,11 @@
           ./imports/system-programs
         ];
         specialArgs = {
-          inherit nixpkgs home-manager dotfiles; 
+          inherit nixpkgs home-manager dotfiles;
+          # Define the user configuration which will use /profiles/${userName}.nix as home manager profile
+          userName = "khernand";
+          userDescription = "Kevin Hernandez";
+          networkingHostName = "nixos"; 
         };
       };
     in
