@@ -16,15 +16,16 @@ This repository contains my **NixOS configuration**, utilizing **flakes** and **
 ## ⚙️ Repository Structure
 ```plaintext
 nixos-config/
-│── flake.nix                 # Entrypoint defining hosts & imports
+│── flake.nix                       # Entrypoint defining hosts & imports
 │── imports/
-│   ├── core/                 # Core system configurations (auto-loaded)
-│   ├── services/             # Toggleable system services
-│   ├── system-programs/      # Toggleable system-wide programs
+│   ├── core/                       # Core system configurations (auto-loaded)
+│   ├── services/                   # Toggleable system services
+│   ├── system-programs/            # Toggleable system-wide programs
 │── hosts/
-│   ├── desktop/              # Example host configuration
-│── profiles/                 # Home Manager user profiles
-│── hardware-configuration.nix # System hardware configuration
+│   ├── desktop/                    # My host configuration (use as example)
+|      ├── hardware-configuration.nix # System hardware configuration              
+│── profiles/                       # Home Manager user profiles
+│   ├── khernand.nix                # My home manager profile (use as example)
 ```
 
 ## 🔧 Customization Guide
@@ -46,7 +47,7 @@ To adapt this configuration to your own setup:
 ## 🚀 Usage
 To apply system updates:
 ```sh
-sudo nixos-rebuild switch --flake .
+sudo nixos-rebuild switch --flake .#desktop
 ```
 To update dependencies:
 ```sh
