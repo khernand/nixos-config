@@ -16,16 +16,16 @@ This repository contains my **NixOS configuration**, utilizing **flakes** and **
 ## ⚙️ Repository Structure
 ```plaintext
 nixos-config/
-│── flake.nix                       # Entrypoint defining hosts & imports
+│── flake.nix                         # Entrypoint defining hosts & imports
 │── imports/
-│   ├── core/                       # Core system configurations (auto-loaded)
-│   ├── services/                   # Toggleable system services
-│   ├── system-programs/            # Toggleable system-wide programs
+│   ├── core/                         # Core system configurations (auto-loaded)
+│   ├── services/                     # Toggleable system services
+│   ├── system-programs/              # Toggleable system-wide programs
 │── hosts/
-│   ├── desktop/                    # My host configuration (use as example)
+│   ├── desktop/                      # My host configuration (use as example)
 |      ├── hardware-configuration.nix # System hardware configuration              
-│── profiles/                       # Home Manager user profiles
-│   ├── khernand.nix                # My home manager profile (use as example)
+│── profiles/                         # Home Manager user profiles
+│   ├── khernand.nix                  # My home manager profile (use as example)
 ```
 
 ## 🔧 Customization Guide
