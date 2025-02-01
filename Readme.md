@@ -31,7 +31,7 @@ nixos-config/
 To adapt this configuration to your own setup:
 
 ### 1️⃣ Replace Dotfiles  
-   - Fork this repository and update `flake.nix` to reference your own dotfiles repository.
+   - Update `flake.nix` to reference your own dotfiles repository.
 
 ### 2️⃣ Modify User Settings  
    - Update `specialArgs` in `flake.nix` to define:
