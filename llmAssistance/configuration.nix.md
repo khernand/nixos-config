@@ -1,3 +1,7 @@
+# This is the current implementation of configuration.nix file that lives in hosts/desktop
+
+```nix
+
 { config, pkgs, home-manager, dotfiles, userName, userDescription, networkingHostName, ... }:
 
 {
@@ -18,7 +22,6 @@
   x11.enable = true;
   networking.enable = true;
   plasma.enable = true;
-  # hyprland.enable = true;
   thunderbolt.enable = true;
 
   # Enable system programs
@@ -55,3 +58,5 @@
   # Set the global NixOS state version
   system.stateVersion = "24.11";
 }
+
+```

@@ -1,3 +1,6 @@
+# This is the current implementation of the khernand.nix.md in profiles/khernand.nix
+
+```nix
 { pkgs, dotfiles, ... }:
 {
   home.stateVersion = "24.11";
@@ -87,9 +90,10 @@
 
   # Symlink dot files from the dotfile repo
   home.file.".common-aliases".source = "${dotfiles}/.common-aliases";
-  home.file.".nix-aliases".source = "${dotfiles}/nixos/.nix-aliases";
+  home.file.".nix-aliases".source = "${dotfiles}/.nix-aliases";
 
   home.file.".local/share/autojump.sh".source = "${pkgs.autojump}/etc/profile.d/autojump.sh";
 
   programs.neovim.enable = true;
 }
+```
