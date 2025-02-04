@@ -10,9 +10,9 @@
   };
 
   config = lib.mkIf config.docker.enable {
-    hardware.nvidia-container-toolkit.enable = config.nvidia.enable;
+    # hardware.nvidia-container-toolkit.enable = config.nvidia.enable;
 
-    environment.systemPackages = with pkgs; [distrobox];
+    environment.systemPackages = with pkgs; [ distrobox ];
 
     virtualisation = {
       containers = {

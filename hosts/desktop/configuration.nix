@@ -15,12 +15,12 @@
   bluetooth.enable = true;
   audio.enable = true;
   printing.enable = true;
-  x11.enable = true;
   networking.enable = true;
-  plasma.enable = true;
-  # hyprland.enable = true;
+  # plasma.enable = true;
+  services.displayManager.sddm.enable = true;
+  hyprland.enable = true;
   thunderbolt.enable = true;
-
+  
   # Enable system programs
   _1password.enable = true;
   steam.enable = true;
@@ -37,7 +37,7 @@
     isNormalUser = true;
     description = userDescription;
     group = userName;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "video"];
     packages = with pkgs; [ kate ];
     shell = pkgs.zsh;
   };
@@ -51,6 +51,8 @@
   home-manager.users.${userName} = import ../../profiles/${userName}.nix {
     inherit pkgs dotfiles;
   };
+
+  home-manager.backupFileExtension = "backup";
 
   # Set the global NixOS state version
   system.stateVersion = "24.11";

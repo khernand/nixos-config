@@ -18,14 +18,17 @@
     fastfetch
   ];
 
-  ## System configuration
+  ## 🔹 Environment Variables for Hyprland
   home.sessionVariables = {
-    EDITOR = "vim";
+    XDG_SESSION_TYPE = "wayland";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_DESKTOP = "Hyprland";
+    WLR_NO_HARDWARE_CURSORS = "1";
   };
 
   fonts.fontconfig.enable = true;
 
-  ## Kitty configuration
+  ## 🔹 Kitty Configuration
   home.file.".config/kitty/KittyTheme.conf".source = "${dotfiles}/KittyTheme.conf";
 
   programs.kitty = {
@@ -37,7 +40,7 @@
     '';
   };
 
-  ## Git configuration
+  ## 🔹 Git Configuration
   programs.git = {
     enable = true;
     userName = "Kevin Hernandez";
@@ -48,7 +51,7 @@
     };
   };
 
-  ## Zsh configuration
+  ## 🔹 Zsh Configuration
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -84,12 +87,13 @@
     '';
   };
 
-
-  # Symlink dot files from the dotfile repo
+  # 🔹 Symlink dotfiles from the dotfile repo
   home.file.".common-aliases".source = "${dotfiles}/.common-aliases";
   home.file.".nix-aliases".source = "${dotfiles}/nixos/.nix-aliases";
-
   home.file.".local/share/autojump.sh".source = "${pkgs.autojump}/etc/profile.d/autojump.sh";
+  # Symlinks for hyprland config files
+  home.file.".config/waybar/config".source = "${dotfiles}/nixos/hyprland/modules/waybar/config";
+  home.file.".config/waybar/style.css".source = "${dotfiles}/waybar/style.css";
 
   programs.neovim.enable = true;
 }
