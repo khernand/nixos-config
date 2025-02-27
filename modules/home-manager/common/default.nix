@@ -2,6 +2,7 @@
   outputs,
   userConfig,
   pkgs,
+  dotfiles,
   ...
 }: {
   imports = [
@@ -51,8 +52,8 @@
   };
 
   # Symlink dotfiles from the dotfile repo
-  # home.file.".common-aliases".source = "${dotfiles}/.common-aliases";
-  # home.file.".nix-aliases".source = "${dotfiles}/nixos/.nix-aliases";
+  home.file.".common-aliases".source = "${dotfiles}/.common-aliases";
+  home.file.".nix-aliases".source = "${dotfiles}/nixos/.nix-aliases";
   home.file.".local/share/autojump.sh".source = "${pkgs.autojump}/etc/profile.d/autojump.sh";
 
   programs.neovim.enable = true;

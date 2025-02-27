@@ -1,7 +1,8 @@
 {
+  dotfiles,
   ...
 }: {
-  # home.file.".config/kitty/KittyTheme.conf".source = "${dotfiles}/KittyTheme.conf";
+  home.file.".config/kitty/KittyTheme.conf".source = "${dotfiles}/KittyTheme.conf";
   
   programs.kitty = {
     enable = true;

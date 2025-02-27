@@ -1,5 +1,6 @@
 {
-  pkgs, 
+  pkgs,
+  dotfiles, 
   ...
 }: {
   programs.zsh = {
@@ -18,11 +19,11 @@
     };
 
     plugins = [
-      # {
-      #  name = "powerlevel10k-config";
-      #  src = "${dotfiles}";
-      #  file = "p10k-pure.zsh";
-      # }
+      {
+        name = "powerlevel10k-config";
+        src = "${dotfiles}";
+        file = "p10k-pure.zsh";
+      }
       {
         name = "zsh-powerlevel10k";
         src = "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/";

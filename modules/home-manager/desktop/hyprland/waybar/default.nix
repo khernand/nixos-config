@@ -29,7 +29,6 @@
 
         modules-right = [
           "custom/recorder"
-          "hyprland/language"
           "tray"
           "bluetooth"
           "pulseaudio"
@@ -246,7 +245,6 @@
       #cpu,
       #custom-notification,
       #custom-recorder,
-      #language,
       #memory,
       #tray,
       #pulseaudio,

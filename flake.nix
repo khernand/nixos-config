@@ -70,7 +70,7 @@
         home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {inherit system;};
           extraSpecialArgs = {
-            inherit inputs outputs;
+            inherit inputs outputs dotfiles;
             userConfig = users.${username};
             nhModules = "${self}/modules/home-manager";
           };
