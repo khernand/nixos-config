@@ -19,7 +19,6 @@
           "cpu"
           "temperature"
           "memory"
-          "backlight"
         ];
 
         modules-center = [
@@ -28,24 +27,10 @@
         ];
 
         modules-right = [
-          "custom/recorder"
           "tray"
           "bluetooth"
           "pulseaudio"
-          "pulseaudio#microphone"
         ];
-
-        backlight = {
-          interval = 2;
-          align = 0;
-          rotate = 0;
-          format = "{icon} {percent}%";
-          format-icons = ["󰃞" "󰃟" "󰃝" "󰃠"];
-          icon-size = 10;
-          on-scroll-up = "brightnessctl set +5%";
-          on-scroll-down = "brightnessctl set 5%-";
-          smooth-scrolling-threshold = 1;
-        };
 
         bluetooth = {
           format = "";
@@ -78,11 +63,7 @@
           format = "󰍛 {usage}%";
           interval = 1;
         };
-
-        "hyprland/language" = {
-          format = "{short}";
-        };
-
+        
         "hyprland/workspaces" = {
           all-outputs = true;
           format = "{name}";
@@ -120,16 +101,6 @@
           ignored-sinks = ["Easy Effects Sink"];
         };
 
-        "pulseaudio#microphone" = {
-          format = "{format_source}";
-          format-source = " {volume}%";
-          format-source-muted = "";
-          on-click = "pavucontrol";
-          on-click-right = "pamixer --default-source -t";
-          on-scroll-up = "pamixer --default-source -i 5";
-          on-scroll-down = "pamixer --default-source -d 5";
-        };
-
         temperature = {
           interval = 10;
           tooltip = false;
@@ -140,7 +111,8 @@
         };
 
         tray = {
-          spacing = 20;
+          size = 21;
+          spacing = 10;
         };
 
         "custom/notification" = {
@@ -163,115 +135,125 @@
           on-click-right = "swaync-client -d -sw";
           escape = true;
         };
-
-        "custom/recorder" = {
-          format = "";
-          tooltip = false;
-          return-type = "json";
-          exec = "echo '{\"class\": \"recording\"}'";
-          exec-if = "pgrep wf-recorder";
-          interval = 1;
-          on-click = "screen-recorder";
-        };
       };
     };
     style = ''
-      * {
-        font-family: "JetBrainsMono Nerd Font";
-        font-weight: bold;
-        min-height: 0;
-        font-size: 100%;
-        font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
-        padding: 0px;
-        margin-top: 1px;
-        margin-bottom: 1px;
-      }
+    @define-color rosewater #f5e0dc;
+    @define-color flamingo #f2cdcd;
+    @define-color pink #f5c2e7;
+    @define-color mauve #cba6f7;
+    @define-color red #f38ba8;
+    @define-color maroon #eba0ac;
+    @define-color peach #fab387;
+    @define-color yellow #f9e2af;
+    @define-color green #a6e3a1;
+    @define-color teal #94e2d5;
+    @define-color sky #89dceb;
+    @define-color sapphire #74c7ec;
+    @define-color blue #89b4fa;
+    @define-color lavender #b4befe;
+    @define-color text #cdd6f4;
+    @define-color subtext1 #bac2de;
+    @define-color subtext0 #a6adc8;
+    @define-color overlay2 #9399b2;
+    @define-color overlay1 #7f849c;
+    @define-color overlay0 #6c7086;
+    @define-color surface2 #585b70;
+    @define-color surface1 #45475a;
+    @define-color surface0 #313244;
+    @define-color base #1e1e2e;
+    @define-color mantle #181825;
+    @define-color crust #11111b;
 
-      window#waybar {
-        background: rgba(0, 0, 0, 0);
-      }
+    * {
+      font-family: Fira Code;
+      font-size: 17px;
+      min-height: 0;
+    }
 
-      window#waybar.hidden {
-        opacity: 0.5;
-      }
+    window#waybar {
+      background-color: shade(@base, 0.9);
+      border: 2px solid alpha(@crust, 0.3);
+      border-radius: 1rem;
+    }
 
-      tooltip {
-        background: #1e1e2e;
-        border-radius: 8px;
-      }
+    #waybar {
+      background: transparent;
+      color: @text;
+      margin: 5px;
+    }
 
-      tooltip label {
-        color: #cad3f5;
-        margin-right: 5px;
-        margin-left: 5px;
-      }
+    #workspaces {
+      background-color: @surface0;
+      margin: 5px 5px 5px 1rem;
+      border-radius: 1rem;
+    }
 
-      .modules-right,
-      .modules-center,
-      .modules-left {
-        background-color: rgba(0, 0, 0, 0.6);
-        border: 0px solid #b4befe;
-        border-radius: 8px;
-      }
+    #workspaces button {
+      color: @lavender;
+      border-radius: 1rem;
+      padding: 0.4rem;
+    }
 
-      #workspaces button {
-        padding: 2px;
-        color: #6e6a86;
-        margin-right: 5px;
-      }
+    #workspaces button.active {
+      color: @sky;
+    }
 
-      #workspaces button.active {
-        color: #dfdfdf;
-        border-radius: 3px 3px 3px 3px;
-      }
+    #workspaces button:hover {
+      color: @sapphire;
+    }
 
-      #workspaces button.focused {
-        color: #d8dee9;
-      }
+    #modules-center > *:last-child {
+      margin-right: 2rem;
+    }
 
-      #workspaces button.urgent {
-        color: #ed8796;
-        border-radius: 8px;
-      }
+    #modules-right > *:last-child {
+      margin-right: 2rem;
+    }
 
-      #workspaces button:hover {
-        color: #dfdfdf;
-        border-radius: 3px;
-      }
+    #tray,
+    #clock,
+    #pulseaudio {
+      background-color: @surface0;
+      padding: 0.5rem 1rem;
+      margin: 5px 0;
+      border-radius: 1rem;
+    }
 
-      #backlight,
-      #bluetooth,
-      #clock,
-      #cpu,
-      #custom-notification,
-      #custom-recorder,
-      #memory,
-      #tray,
-      #pulseaudio,
-      #temperature,
-      #workspaces {
-        color: #dfdfdf;
-        padding: 0px 10px;
-        border-radius: 8px;
-      }
+    #cpu,
+    #memory,
+    #temperature {
+      padding: 0.5rem 1rem;
+      margin: 5px 0;
+      min-width: 4em;
+    }
 
-      #temperature.critical {
-        background-color: #ff0000;
-      }
+    #cpu {
+      color: @maroon;
+    }
 
-      @keyframes blink {
-        to {
-          color: #000000;
-        }
-      }
+    #memory {
+      color: @peach;
+    }
 
-      #taskbar button.active {
-        background-color: #7f849c;
-      }
+    #temperature {
+      color: @yellow;
+    }
 
-      #custom-recorder {
-        color: #ff2800;
-      }
+    #clock {
+      color: @blue;
+      margin-right: 1rem;
+    }
+
+    #pulseaudio {
+      color: @maroon;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
+    #tray {
+      margin-right: 1rem;
+    }
     '';
   };
 }
