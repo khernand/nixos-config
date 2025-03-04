@@ -34,7 +34,7 @@
     "hypr/hyprpaper.conf".text = ''
       splash = false
       preload = ${config.wallpaper}
-      wallpaper = DFP-0, ${config.wallpaper}
+      wallpaper = HDMI-A-1, ${config.wallpaper}
     '';
 
     "hypr/hypridle.conf".text = ''
@@ -47,7 +47,7 @@
 
     "hypr/hyprlock.conf".text = ''
       background {
-          monitor =
+          monitor = HDMI-A-1
           path = ${config.wallpaper}
           blur_passes = 3
           contrast = 0.8916
@@ -59,12 +59,11 @@
       general {
           no_fade_in = false
           grace = 0
-          disable_loading_bar = true
+          disable_loading_bar = trues
       }
 
-      # DFP-0 Config
       input-field {
-          monitor = DFP-0
+          monitor = HDMI-A-1
           size = 250, 60
           outline_thickness = 2
           dots_size = 0.2 # Scale of input-field height, 0.2 - 0.8
@@ -85,7 +84,7 @@
 
       # Date
       label {
-        monitor = DFP-0
+        monitor = HDMI-A-1
         text = cmd[update:1000] echo "<span>$(date '+%A, %d %B')</span>"
         color = rgba(255, 255, 255, 0.8)
         font_size = 15
@@ -97,7 +96,7 @@
 
       # Time
       label {
-          monitor = DFP-0
+          monitor = HDMI-A-1
           text = cmd[update:1000] echo "<span>$(date '+%H:%M')</span>"
           color = rgba(255, 255, 255, 0.8)
           font_size = 120

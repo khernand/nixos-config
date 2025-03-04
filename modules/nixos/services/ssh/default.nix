@@ -4,8 +4,10 @@
   services.openssh = {
     enable = true;
     ports = [ 22 ];
-    permitRootLogin = "no";
-    passwordAuthentication = false;
-    challengeResponseAuthentication = false;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+      ChallengeResponseAuthentication = false;
+    };
   };
 }

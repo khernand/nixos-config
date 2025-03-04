@@ -10,6 +10,6 @@
     glib
     gnumake
     killall
-    kate
+    kdePackages.kate
   ];
 }
