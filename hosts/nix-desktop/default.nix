@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     "${nixosModules}/common"
     # Desktop environment
+    # "${nixosModules}/desktop/sway"
     "${nixosModules}/desktop/hyprland"
     # System level programs
     "${nixosModules}/programs/steam"

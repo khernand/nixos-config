@@ -4,16 +4,17 @@
   # Call dbus-update-activation-environment on login
   services.xserver.updateDbusEnvironment = true;
 
-  # Enable Hyprland
-  programs.hyprland = {
+  # Enable sway
+  programs.sway = {
     enable = true;
+    wrapperFeatures.gtk = true;
   };
 
   # Enable security services
   services.gnome.gnome-keyring.enable = true;
   security.polkit.enable = true;
   security.pam.services = {
-    hyprlock = {};
+    swaylock = {};
     gdm.enableGnomeKeyring = true;
   };
 
@@ -22,31 +23,12 @@
     NIXOS_OZONE_WL = "1";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     XCURSOR_SIZE = "24";
-    HYPRLAND_HDR = "1";
   };
 
   environment.systemPackages = with pkgs; [
-    file-roller # archive manager
-    gnome-calculator
-    gnome-pomodoro
-    gnome-text-editor
-    loupe # image viewer
-    nautilus # file manager
-    seahorse # keyring manager
-    totem # Video player
-
-    brightnessctl
     grim
-    hypridle
-    hyprlock
-    hyprpaper
-    hyprpicker
-    libnotify
-    networkmanagerapplet
-    pamixer
     slurp
-    wf-recorder
-    wlr-randr
-    wlsunset
+    wl-clipboard
+    mako
   ];
 }
