@@ -53,7 +53,7 @@
           contrast = 0.8916
           brightness = 0.8172
           vibrancy = 0.1696
-          vibrancy_darkness = 0.0
+          vibrancy_darkness = 0.0 
       }
 
       general {

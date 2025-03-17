@@ -4,8 +4,12 @@
   # Call dbus-update-activation-environment on login
   services.xserver.updateDbusEnvironment = true;
 
+  services.xserver.displayManager.gdm.enable = true;
+  programs.uwsm.enable = true;
+
   # Enable Hyprland
   programs.hyprland = {
+    withUWSM = true;
     enable = true;
   };
 
@@ -17,10 +21,26 @@
     gdm.enableGnomeKeyring = true;
   };
 
+  xdg.portal = {
+    enable = true;
+    wlr.enable = false;
+    config.common.default = "*";
+  };
+
   # Enable Ozone Wayland support in Chromium and Electron based applications
-  environment.sessionVariables = {
+  environment.variables = {
     NIXOS_OZONE_WL = "1";
+    DISABLE_QT5_COMPAT = "0";
+    GDK_BACKEND = "wayland";
+    ANKI_WAYLAND = "1";
+    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    QT_QPA_PLATFORM = "wayland";
+    DISABLE_QT_COMPAT = "0";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    MOZ_ENABLE_WAYLAND = "1";
+    WLR_BACKEND = "wayland";
+    WLR_RENDERER = "wayland";
+    DL_VIDEODRIVER = "wayland";
     XCURSOR_SIZE = "24";
     HYPRLAND_HDR = "1";
   };
