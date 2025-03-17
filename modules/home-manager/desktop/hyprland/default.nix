@@ -24,7 +24,7 @@
     name = "Yaru";
     size = 24;
   };
-
+  
   # Source hyprland config from the home-manager store
   xdg.configFile = {
     "hypr/hyprland.conf" = {

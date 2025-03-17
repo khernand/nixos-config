@@ -180,7 +180,7 @@
     #waybar {
       background: transparent;
       color: @text;
-      margin: 5px;
+      margin: 10px;
     }
 
     #workspaces {
@@ -243,6 +243,10 @@
     #clock {
       color: @blue;
       margin-right: 1rem;
+    }
+
+    #notification {
+      margin-right: 2rem;
     }
 
     #pulseaudio {
