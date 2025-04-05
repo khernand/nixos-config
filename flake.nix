@@ -29,6 +29,8 @@
 
     # Homebrew
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
   outputs = 
@@ -40,6 +42,7 @@
     nix-homebrew,
     nixpkgs,
     dotfiles,
+    chaotic,
     ... 
   }@ inputs: let
       inherit (self) outputs; 
@@ -62,7 +65,10 @@
             userConfig = users.${username};
             nixosModules = "${self}/modules/nixos";
           };
-          modules = [./hosts/${hostname}]; 
+          modules = [
+            ./hosts/${hostname}
+            chaotic.homeManagerModules.default
+          ]; 
         };
 
       # Function for Home Manager configuration

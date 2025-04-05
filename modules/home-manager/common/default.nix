@@ -41,6 +41,8 @@
     fastfetch
     pipenv
     python3
+    prusa-slicer
+    gdb
   ];
 
   ## Environment Variables for Hyprland

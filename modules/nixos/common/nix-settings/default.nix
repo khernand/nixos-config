@@ -22,6 +22,12 @@
     max-jobs = 15;
   };
 
+  nix.gc = {
+    automatic = true;
+    randomizedDelaySec = "14m";
+    options = "--delete-older-than 10d"
+  };
+
   # Enable Zsh and define system-level user
   programs.zsh.enable = true;
   

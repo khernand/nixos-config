@@ -61,6 +61,7 @@
     seahorse # keyring manager
     totem # Video player
 
+    pavucontrol
     brightnessctl
     grim
     hypridle
