@@ -10,9 +10,9 @@
         passthrough = false;
         fixed-center = true;
         ipc = true;
-        margin-top = 3;
-        margin-left = 4;
-        margin-right = 4;
+        margin-top = 8;
+        margin-left = 7;
+        margin-right = 7;
 
         modules-left = [
           "hyprland/workspaces"
