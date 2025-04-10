@@ -23,13 +23,13 @@
 
         modules-center = [
           "clock"
-          "custom/notification"
         ];
 
         modules-right = [
           "tray"
           "bluetooth"
           "pulseaudio"
+          "custom/notification"
         ];
 
         bluetooth = {
@@ -84,6 +84,7 @@
 
         pulseaudio = {
           format = "{icon} {volume}%";
+          format-bluetooth = "{icon}  {volume} %";
           format-muted = "";
           format-icons = {
             default = [
@@ -213,7 +214,8 @@
 
     #tray,
     #clock,
-    #pulseaudio {
+    #pulseaudio
+    #custom-notification {
       background-color: @surface0;
       padding: 0.5rem 1rem;
       margin: 5px 0;
@@ -245,14 +247,16 @@
       margin-right: 1rem;
     }
 
-    #notification {
-      margin-right: 2rem;
-    }
-
     #pulseaudio {
       color: @maroon;
       margin-left: 1rem;
       margin-right: 1rem;
+    }
+
+    #custom-notification {
+      color: @mauve;
+      margin-left: 1rem;
+      margin-right: 2rem;
     }
 
     #tray {
