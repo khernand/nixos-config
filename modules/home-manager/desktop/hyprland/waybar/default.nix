@@ -33,7 +33,7 @@
         ];
 
         bluetooth = {
-          format = "";
+          format = "";
           format-connected = " {num_connections}";
           tooltip-format = " {device_alias}";
           tooltip-format-connected = "{device_enumerate}";
