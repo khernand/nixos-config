@@ -11,5 +11,7 @@
     gnumake
     killall
     kdePackages.kate
+    nixfmt-rfc-style
+    nixd
   ];
 }

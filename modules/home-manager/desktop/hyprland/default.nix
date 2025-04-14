@@ -43,6 +43,18 @@
         before_sleep_cmd = loginctl lock-session
         after_sleep_cmd = hyprctl dispatch dpms on
       }
+
+      listener {
+          timeout = 300
+          on-timeout = hyprlock
+          on-resume = notify-send "Welcome back!" 
+      }
+
+      listener {
+          timeout = 380 
+          on-timeout = hyprctl dispatch dpms off
+          on-resume = hyprctl dispatch dpms on
+      }
     '';
 
     "hypr/hyprlock.conf".text = ''
