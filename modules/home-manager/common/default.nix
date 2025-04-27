@@ -43,6 +43,7 @@
     python3
     prusa-slicer
     gdb
+    flashrom
   ];
 
   ## Environment Variables for Hyprland
