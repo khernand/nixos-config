@@ -1,7 +1,5 @@
 {...}: {
-  # Install cliphist via home-manager module
-  services.cliphist = {
+  services.clipse = {
     enable = true;
-    systemdTargets = "hyprland-session.target";
   };
 }
