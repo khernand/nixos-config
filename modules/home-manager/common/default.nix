@@ -47,6 +47,7 @@
     hexedit
     ghex
     file
+    clipse
   ];
 
   ## Environment Variables for Hyprland

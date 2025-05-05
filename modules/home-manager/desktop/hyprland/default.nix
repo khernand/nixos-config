@@ -11,7 +11,7 @@
     "${nhModules}/desktop/hyprland/xdg"
     "${nhModules}/desktop/hyprland/swappy"
     "${nhModules}/desktop/hyprland/wofi"
-    "${nhModules}/desktop/hyprland/cliphist"
+    "${nhModules}/desktop/hyprland/clipse"
     "${nhModules}/desktop/hyprland/swaync"
     "${nhModules}/desktop/hyprland/waybar"
   ];
