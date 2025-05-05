@@ -44,6 +44,9 @@
     prusa-slicer
     gdb
     flashrom
+    hexedit
+    ghex
+    file
   ];
 
   ## Environment Variables for Hyprland
