@@ -165,6 +165,8 @@
     @define-color base #1e1e2e;
     @define-color mantle #181825;
     @define-color crust #11111b;
+    @define-color nord-background  #4C566A;
+    @define-color nord-main  #3B4252;
 
     * {
       font-family: Fira Code;
@@ -172,16 +174,15 @@
       min-height: 0;
     }
 
-    window#waybar {
-      background-color: shade(@base, 0.9);
-      border: 2px solid alpha(@crust, 0.3);
-      border-radius: 1rem;
-    }
-
     #waybar {
-      background: transparent;
-      color: @text;
+      background-color: shade(@nord-background, 0.9);
+      color: @nord-main;
+      transition-property: background-color;
+      transition-duration: 0.5s;
+      border-top: 3px transparent;
+      border-radius: 0px;
       margin: 10px;
+      margin-right: 20px;
     }
 
     #workspaces {

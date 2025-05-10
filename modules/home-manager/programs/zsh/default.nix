@@ -31,7 +31,7 @@
       }
     ];
 
-    initExtra = ''
+    initContent = ''
       [[ -f "$HOME/.local/share/autojump.sh" ]] && source "$HOME/.local/share/autojump.sh"
       [[ -f "$HOME/.common-aliases" ]]    && source "$HOME/.common-aliases"
       [[ -f "$HOME/.nix-aliases" ]] && source "$HOME/.nix-aliases"

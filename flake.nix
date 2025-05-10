@@ -47,6 +47,9 @@
   }@ inputs: let
       inherit (self) outputs; 
 
+      # Load helpers globally
+      helpers = import ./helpers { lib = nixpkgs.helpers; };
+
       # Define user configurations
       users = {
         khernand = {
@@ -61,7 +64,7 @@
       mkNixosConfiguration = hostname: username:
         nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs outputs hostname;
+            inherit inputs outputs hostname helpers;
             userConfig = users.${username};
             nixosModules = "${self}/modules/nixos";
           };
@@ -76,7 +79,7 @@
         home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {inherit system;};
           extraSpecialArgs = {
-            inherit inputs outputs dotfiles;
+            inherit inputs outputs dotfiles helpers;
             userConfig = users.${username};
             nhModules = "${self}/modules/home-manager";
           };
@@ -87,6 +90,8 @@
         };  
     in
     {
+      inherit helpers;
+
       nixosConfigurations = {
         nix-desktop =  mkNixosConfiguration "nix-desktop" "khernand";
       };
