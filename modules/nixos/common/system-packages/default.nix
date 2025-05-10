@@ -13,5 +13,6 @@
     kdePackages.kate
     nixfmt-rfc-style
     nixd
+    btop
   ];
 }

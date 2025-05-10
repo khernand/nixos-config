@@ -48,6 +48,7 @@
     ghex
     file
     clipse
+    btop
   ];
 
   ## Environment Variables for Hyprland
