@@ -48,7 +48,7 @@
       inherit (self) outputs; 
 
       # Load helpers globally
-      helpers = import ./helpers { lib = nixpkgs.helpers; };
+      helpers = import ./helpers { lib = nixpkgs.lib; };
 
       # Define user configurations
       users = {

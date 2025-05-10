@@ -1,20 +1,11 @@
 {
   config,
   lib,
-  nhModules,
   pkgs,
+  helpers,
   ...
 }: {
-  imports = [
-    "${nhModules}/desktop/hyprland/gtk"
-    "${nhModules}/desktop/hyprland/wallpaper"
-    "${nhModules}/desktop/hyprland/xdg"
-    "${nhModules}/desktop/hyprland/swappy"
-    "${nhModules}/desktop/hyprland/wofi"
-    "${nhModules}/desktop/hyprland/clipse"
-    "${nhModules}/desktop/hyprland/swaync"
-    "${nhModules}/desktop/hyprland/waybar"
-  ];
+  imports = helpers.importAll ./dependencies;
 
   # Consistent cursor theme across all applications.
   home.pointerCursor = {
