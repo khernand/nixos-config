@@ -1,15 +1,11 @@
 {
-  outputs,
   userConfig,
   pkgs,
   dotfiles,
+  helpers,
   ...
 }: {
-  imports = [
-    ../programs/zsh
-    ../programs/git
-    ../programs/kitty
-  ];
+  imports = helpers.importAll ../programs;
 
   # Nixpkgs configuration
   nixpkgs = {
@@ -48,7 +44,7 @@
     ghex
     file
     clipse
-    btop
+    tmux
   ];
 
   ## Environment Variables for Hyprland
