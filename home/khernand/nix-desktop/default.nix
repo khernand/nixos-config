@@ -1,9 +1,8 @@
-{nhModules, ...}: {
-  imports = [
+{nhModules, helpers, ...}: {
+  imports = helpers.importAll "${nhModules}/services"
+  ++ [
     "${nhModules}/common"
     "${nhModules}/desktop/hyprland"
-    "${nhModules}/services/easyeffects"
-    "${nhModules}/services/ulauncher"
   ];
 
   # Enable home-manager
