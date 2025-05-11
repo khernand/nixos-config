@@ -1,22 +1,16 @@
 { 
-  inputs,
   hostname,
   nixosModules,
-  userConfig,
-  pkgs,
+  helpers,
   ... 
 }: {
+
   imports = [
     ./hardware-configuration.nix
     "${nixosModules}/common"
     # Desktop environment
     # "${nixosModules}/desktop/sway"
     "${nixosModules}/desktop/hyprland"
-    # System level programs
-    "${nixosModules}/programs/steam"
-    "${nixosModules}/programs/_1password"
-    "${nixosModules}/programs/docker"
-    "${nixosModules}/programs/firefox"
     # System level services
     "${nixosModules}/services/nvidia"
     "${nixosModules}/services/bluetooth"
@@ -26,7 +20,9 @@
     "${nixosModules}/services/thunderbolt"
     "${nixosModules}/services/ssh"
     "${nixosModules}/services/x11"
-  ];
+  ]
+  # System level programs
+  ++ helpers.importAll "${nixosModules}/programs";
   
   # Define hostname
   networking.hostName = hostname;
