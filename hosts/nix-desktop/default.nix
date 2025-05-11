@@ -23,6 +23,12 @@
   ]
   # System level programs
   ++ helpers.importAll "${nixosModules}/programs";
+
+  # Enable system level programs
+  my.system.programs._1password.enable = true;
+  my.system.programs.docker.enable = true;
+  my.system.programs.firefox.enable = true;
+  my.system.programs.steam.enable = true;
   
   # Define hostname
   networking.hostName = hostname;

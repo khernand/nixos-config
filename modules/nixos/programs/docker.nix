@@ -1,8 +1,18 @@
 {
   pkgs,
+  lib,
+  config,
   ...
 }: {
-    # hardware.nvidia-container-toolkit.enable = config.nvidia.enable;
+  options = {
+    my.system.programs.docker.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable Docker";
+    };
+  };
+
+  config = lib.mkIf config.my.system.programs.docker.enable {
     environment.systemPackages = with pkgs; [ distrobox ];
 
     virtualisation = {
@@ -24,4 +34,7 @@
 
       oci-containers.backend = "docker";
     };
+
+    # hardware.nvidia-container-toolkit.enable = config.nvidia.enable;
+  };
 }
