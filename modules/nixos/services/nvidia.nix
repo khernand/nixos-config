@@ -1,6 +1,18 @@
-{ config, lib, pkgs, ... }:
-
 {
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
+  options = {
+    my.system.services.nvidia.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable Nvidia graphics";
+    };
+  };
+
+  config = lib.mkIf config.my.system.services.nvidia.enable  {
     services.xserver.videoDrivers = [ "nvidia" ];
     hardware.graphics.enable = true;
     hardware.graphics.enable32Bit = true;
@@ -18,4 +30,5 @@
     environment.systemPackages = with pkgs; [
       cudatoolkit
     ];
+  };
 }
