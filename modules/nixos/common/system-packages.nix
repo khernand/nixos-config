@@ -9,10 +9,17 @@
     gcc
     glib
     gnumake
+    unzip
     killall
     kdePackages.kate
     nixfmt-rfc-style
     nixd
     btop
+    #lazyvim deps
+    neovim
+    fzf
+    lazygit
+    ripgrep
+    fd
   ];
 }

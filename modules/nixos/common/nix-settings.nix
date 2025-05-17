@@ -29,6 +29,7 @@
 
   # Enable Zsh and define system-level user
   programs.zsh.enable = true;
+  programs.nix-ld.enable = true;
   
   users.users.${userConfig.name} = {
     isNormalUser = true;

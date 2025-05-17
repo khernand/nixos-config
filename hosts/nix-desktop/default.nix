@@ -7,16 +7,18 @@
 
   imports = [
     ./hardware-configuration.nix
-    # Desktop environment
-    # "${nixosModules}/desktop/sway"
-    "${nixosModules}/desktop/hyprland"
   ]
+  # System desktop environments
+  ++ helpers.importAll "${nixosModules}/desktop"
   # Common configurations and system level programs/services
   ++ helpers.importAll "${nixosModules}/common"
   # Custom System level services
   ++ helpers.importAll "${nixosModules}/services"
   # Custom System level programs
   ++ helpers.importAll "${nixosModules}/programs";
+
+  # Enable system desktop environment
+  my.system.desktop.hyprland.enable = true;
 
   # Enable system services
   my.system.services.audio.enable = true;
