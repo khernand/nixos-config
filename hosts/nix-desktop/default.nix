@@ -29,6 +29,7 @@
   my.system.services.ssh.enable = true;
   my.system.services.x11.enable = true;
   my.system.services.printing.enable = true;
+  my.system.services.sunshine.enable = true;
 
   # Enable system level programs
   my.system.programs._1password.enable = true;
