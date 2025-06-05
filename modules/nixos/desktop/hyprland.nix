@@ -72,7 +72,7 @@
       nautilus # file manager
       seahorse # keyring manager
       totem # Video player
-
+      wl-clipboard
       pavucontrol
       brightnessctl
       grim

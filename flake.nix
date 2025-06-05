@@ -67,6 +67,7 @@
             inherit inputs outputs hostname helpers;
             userConfig = users.${username};
             nixosModules = "${self}/modules/nixos";
+            dotfilesDir = "${self}/dotfiles";
           };
           modules = [
             ./hosts/${hostname}
@@ -82,6 +83,7 @@
             inherit inputs outputs dotfiles helpers;
             userConfig = users.${username};
             nhModules = "${self}/modules/home-manager";
+            dotfilesDir = "${self}/dotfiles";
           };
           modules = [
             ./home/${username}/${hostname}
