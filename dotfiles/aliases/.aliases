@@ -1,0 +1,4 @@
+function nv() {
+   kitty @ launch --type=window --location=before --cwd=current env NVIM_APPNAME=nvim-lazyvim nvim
+}
+
