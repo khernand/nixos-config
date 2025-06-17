@@ -16,7 +16,7 @@
     # Call dbus-update-activation-environment on login
     services.xserver.updateDbusEnvironment = true;
 
-    services.xserver.displayManager.gdm.enable = true;
+    services.displayManager.gdm.enable = true;
     programs.uwsm.enable = true;
 
     # Enable Hyprland
