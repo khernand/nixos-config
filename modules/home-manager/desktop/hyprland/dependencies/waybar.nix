@@ -165,8 +165,8 @@
     @define-color base #1e1e2e;
     @define-color mantle #181825;
     @define-color crust #11111b;
-    @define-color nord-background  #4C566A;
-    @define-color nord-main  #3B4252;
+    @define-color nord-background #24273a;
+    @define-color nord-main #cad3f5;
 
     * {
       font-family: Fira Code;
