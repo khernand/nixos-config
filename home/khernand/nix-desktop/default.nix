@@ -2,10 +2,9 @@
   imports = helpers.importAll "${nhModules}/services"
   ++ [
     "${nhModules}/common"
-    "${nhModules}/desktop/hyprland"
   ];
 
-  # Enable home-manager
+  # Enable home-managers
   programs.home-manager.enable = true;
 
   # Nicely reload system units when changing configs

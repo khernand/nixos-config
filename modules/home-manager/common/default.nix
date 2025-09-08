@@ -8,13 +8,6 @@
 }: {
   imports = helpers.importAll ../programs;
 
-  # Nixpkgs configuration
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
-
   # Home-Manager configuration for the user's home environment
   home = {
     username = "${userConfig.name}";
@@ -25,7 +18,6 @@
   };
 
   home.packages = with pkgs; [
-    zsh
     git
     vscode
     discord
@@ -36,12 +28,15 @@
     zsh-powerlevel10k
     fira-code
     fastfetch
+    ffmpeg
     pipenv
     python3
+    python3Packages.virtualenv
     prusa-slicer
     gdb
     flashrom
     hexedit
+    hdf5
     ghex
     file
     clipse

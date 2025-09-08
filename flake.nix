@@ -33,8 +33,8 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
-  outputs = 
-  { 
+  outputs =
+  {
     self,
     catppuccin,
     darwin,
@@ -43,9 +43,25 @@
     nixpkgs,
     dotfiles,
     chaotic,
-    ... 
+    ...
   }@ inputs: let
-      inherit (self) outputs; 
+      inherit (self) outputs;
+
+      # Create one single, patched package set for the entire system.
+      pkgs = import inputs.nixpkgs {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+        overlays = [
+          # This is the overlay that fixes the pygobject build error.
+          (final: prev: {
+            python313Packages = prev.python313Packages.overrideScope (self: super: {
+              pygobject = super.pygobject.overrideAttrs (old: {
+                propagatedBuildInputs = (old.propagatedBuildInputs or []) ++ [ self.python ];
+              });
+            });
+          })
+        ];
+      };
 
       # Load helpers globally
       helpers = import ./helpers { lib = nixpkgs.lib; };
@@ -63,6 +79,8 @@
       # Function for NixOS system configuration
       mkNixosConfiguration = hostname: username:
         nixpkgs.lib.nixosSystem {
+          # Explicitly pass our patched pkgs set to the system.
+          pkgs = pkgs;
           specialArgs = {
             inherit inputs outputs hostname helpers;
             userConfig = users.${username};
@@ -72,13 +90,14 @@
           modules = [
             ./hosts/${hostname}
             chaotic.homeManagerModules.default
-          ]; 
+          ];
         };
 
       # Function for Home Manager configuration
       mkHomeConfiguration = system: username: hostname:
         home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {inherit system;};
+          # Explicitly pass our patched pkgs set to Home Manager.
+          pkgs = pkgs;
           extraSpecialArgs = {
             inherit inputs outputs dotfiles helpers;
             userConfig = users.${username};
@@ -88,8 +107,8 @@
           modules = [
             ./home/${username}/${hostname}
             catppuccin.homeModules.catppuccin
-          ]; 
-        };  
+          ];
+        };
     in
     {
       inherit helpers;

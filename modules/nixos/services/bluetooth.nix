@@ -26,8 +26,6 @@
         };
       };
 
-      services.blueman.enable = true;
-  
       hardware.xpadneo.enable = true; # Driver for Xbox Controller
 
       boot = {
@@ -37,7 +35,7 @@
         '';
         # connect Xbox controller
       };
-      
+
       systemd.user.services.mpris-proxy = {
         description = "Mpris proxy";
         after = [ "network.target" "sound.target" ];
