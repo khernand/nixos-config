@@ -23,7 +23,7 @@
 
   # Enable system services
   my.system.services.audio.enable = true;
-  my.system.services.bluetooth.enable = false;
+  my.system.services.bluetooth.enable = true;
   my.system.services.networking.enable = true;
   my.system.services.thunderbolt.enable = true;
   my.system.services.nvidia.enable = true;

@@ -41,6 +41,7 @@
     file
     clipse
     tmux
+    btop
   ];
 
   ## Environment Variables for Hyprland
