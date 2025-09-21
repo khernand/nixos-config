@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   options = {
@@ -19,5 +20,6 @@
         openFirewall = true;
     };
   };
+
+  services.udev.packages = [ pkgs.steam pkgs.sunshine ];
 }
- 

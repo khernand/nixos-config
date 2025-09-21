@@ -26,15 +26,14 @@
         };
       };
 
-      # hardware.xpadneo.enable = true; # Driver for Xbox Controller
+      hardware.xpadneo.enable = true; # Driver for Xbox Controller
 
-      # boot = {
-      #   extraModulePackages = with config.boot.kernelPackages; [ xpadneo ];
-      #   extraModprobeConfig = ''
-      #     options bluetooth disable_ertm=Y
-      #   '';
-      #   # connect Xbox controller
-      # };
+      boot = {
+        extraModulePackages = with config.boot.kernelPackages; [ xpadneo ];
+        extraModprobeConfig = ''
+          options bluetooth disable_ertm=Y
+        '';
+      };
 
       systemd.user.services.mpris-proxy = {
         description = "Mpris proxy";

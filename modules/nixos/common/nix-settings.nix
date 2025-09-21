@@ -35,7 +35,7 @@
     isNormalUser = true;
     initialPassword = "password";
     description = userConfig.fullName;
-    extraGroups = [ "networkmanager" "wheel" "docker" "video"];
+    extraGroups = [ "networkmanager" "wheel" "docker" "video" "input"];
     shell = pkgs.zsh;
   };
 
