@@ -3,8 +3,9 @@
 
   inputs = {
     # Nixpkgs
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
 
     # Home manager
     home-manager = {
@@ -29,8 +30,6 @@
 
     # Homebrew
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
   outputs =
@@ -42,7 +41,6 @@
     nix-homebrew,
     nixpkgs,
     dotfiles,
-    chaotic,
     ...
   }@ inputs: let
       inherit (self) outputs;
@@ -51,16 +49,6 @@
       pkgs = import inputs.nixpkgs {
         system = "x86_64-linux";
         config.allowUnfree = true;
-        overlays = [
-          # This is the overlay that fixes the pygobject build error.
-          (final: prev: {
-            python313Packages = prev.python313Packages.overrideScope (self: super: {
-              pygobject = super.pygobject.overrideAttrs (old: {
-                propagatedBuildInputs = (old.propagatedBuildInputs or []) ++ [ self.python ];
-              });
-            });
-          })
-        ];
       };
 
       # Load helpers globally
@@ -89,7 +77,6 @@
           };
           modules = [
             ./hosts/${hostname}
-            chaotic.homeManagerModules.default
           ];
         };
 

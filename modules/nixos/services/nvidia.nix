@@ -24,6 +24,7 @@
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
 
+    environment.variables.LIBVA_DRIVER_NAME = "nvidia";
     environment.variables.VULKAN_ICD_PATH = "/etc/vulkan/icd.d";
     environment.variables.LAYER_PATH = "/etc/vulkan/implicit_layer.d";
 

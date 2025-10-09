@@ -19,7 +19,7 @@
         capSysAdmin = true;
         openFirewall = true;
     };
-  };
 
-  services.udev.packages = [ pkgs.steam pkgs.sunshine ];
+    services.udev.packages = [ pkgs.steam pkgs.sunshine ];
+  };
 }

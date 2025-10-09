@@ -20,5 +20,9 @@
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
     };
+
+    hardware.xpadneo.enable = true;
+    hardware.steam-hardware.enable = true;
+
   };
 }

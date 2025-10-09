@@ -26,8 +26,6 @@
         };
       };
 
-      hardware.xpadneo.enable = true; # Driver for Xbox Controller
-
       boot = {
         extraModulePackages = with config.boot.kernelPackages; [ xpadneo ];
         extraModprobeConfig = ''
