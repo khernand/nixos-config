@@ -2,21 +2,24 @@
   # Install git via home-manager module
   programs.git = {
     enable = true;
-    userName = userConfig.fullName;
-    userEmail = userConfig.email;
-    delta = {
-      enable = true;
-      options = {
-        keep-plus-minus-markers = true;
-        light = false;
-        line-numbers = true;
-        navigate = true;
-        width = 280;
+    settings = {
+      user = {
+        name = userConfig.fullName;
+        email = userConfig.email;
       };
-    };
-    extraConfig = {
       pull.rebase = "true";
       core.editor = "vim";
+    };
+  };
+
+  programs.delta = {
+    enable = true;
+    options = {
+      keep-plus-minus-markers = true;
+      light = false;
+      line-numbers = true;
+      navigate = true;
+      width = 280;
     };
   };
 

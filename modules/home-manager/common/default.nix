@@ -42,6 +42,8 @@
     clipse
     tmux
     btop
+    gnome-terminal
+    code-cursor
   ];
 
   ## Environment Variables for Hyprland
