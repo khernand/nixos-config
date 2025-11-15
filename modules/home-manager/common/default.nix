@@ -43,7 +43,10 @@
     tmux
     btop
     gnome-terminal
-    code-cursor
+    code-cursor 
+    slack
+    dbeaver-bin
+    yt-dlp
   ];
 
   ## Environment Variables for Hyprland
