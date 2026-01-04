@@ -21,5 +21,7 @@
     lazygit
     ripgrep
     fd
+    SDL2
+    sdl-jstest
   ];
 }

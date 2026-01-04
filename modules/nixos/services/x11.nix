@@ -18,6 +18,7 @@
       xkb.layout = "pl";
       xkb.variant = "";
       excludePackages = with pkgs; [xterm];
+      enableTCP = true;
     };
   };
 }

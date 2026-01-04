@@ -47,6 +47,7 @@
     slack
     dbeaver-bin
     yt-dlp
+    ghostty
   ];
 
   ## Environment Variables for Hyprland
